@@ -6,10 +6,9 @@ import { PrismaService } from './prisma/prisma.service';
 import { MunicipioModule } from './municipio/municipio.module';
 import { LocalidadModule } from './localidad/localidad.module';
 import { ClienteModule } from './cliente/cliente.module';
-import { DireccionModule } from './direccion/direccion.module';
 
 @Module({
-  imports: [EstadoModule, MunicipioModule, LocalidadModule, ClienteModule, DireccionModule],
+  imports: [EstadoModule, MunicipioModule, LocalidadModule, ClienteModule],
   controllers: [AppController],
   providers: [AppService, PrismaService],
 })
