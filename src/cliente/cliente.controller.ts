@@ -1,14 +1,14 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Put, Delete } from '@nestjs/common';
 import { ClienteService } from './cliente.service';
-import { Cliente } from '@prisma/client';
+import { Cliente, Prisma } from '@prisma/client';
 
 @Controller('clientes')
 export class ClienteController {
   constructor(private readonly clienteService: ClienteService) {}
 
   @Post()
-  async create(@Body() createClienteDto: any): Promise<Cliente> {
-    return this.clienteService.create(createClienteDto);
+  async create(@Body() data: Prisma.ClienteCreateInput): Promise<Cliente> {
+    return this.clienteService.create(data);
   }
 
   @Get()
@@ -18,16 +18,16 @@ export class ClienteController {
 
   @Get(':id')
   async findOne(@Param('id') id: string): Promise<Cliente | null> {
-    return this.clienteService.findOne(+id);
+    return this.clienteService.findOne(Number(id));
   }
 
-  @Patch(':id')
-  async update(@Param('id') id: string, @Body() updateClienteDto: any): Promise<Cliente> {
-    return this.clienteService.update(+id, updateClienteDto);
+  @Put(':id')
+  async update(@Param('id') id: string, @Body() data: Prisma.ClienteUpdateInput): Promise<Cliente> {
+    return this.clienteService.update(Number(id), data);
   }
 
   @Delete(':id')
   async remove(@Param('id') id: string): Promise<Cliente> {
-    return this.clienteService.remove(+id);
+    return this.clienteService.remove(Number(id));
   }
 }
