@@ -1,15 +1,15 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { EstadosModule } from './estados/estados.module';
+import { EstadosModule } from './estado/estado.module';
 import { PrismaService } from './prisma/prisma.service';
-import { MunicipiosModule } from './municipios/municipios.module';
-import { LocalidadesModule } from './localidades/localidades.module';
-import { ClientesModule } from './clientes/clientes.module';
-import { DireccionesModule } from './direcciones/direcciones.module';
+import { MunicipiosModule } from './municipio/municipio.module';
+import { LocalidadesModule } from './localidad/localidad.module';
+import { ClientesModule } from './cliente/cliente.module';
+import { DireccionesModule } from './direccion/direccion.module';
 
 @Module({
-  imports: [EstadosModule, MunicipiosModule, LocalidadesModule, ClientesModule, DireccionesModule],
+  imports: [EstadoModule, MunicipioModule, LocalidadModule, ClienteModule, DireccionModule],
   controllers: [AppController],
   providers: [AppService, PrismaService],
 })
