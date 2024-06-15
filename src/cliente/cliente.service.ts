@@ -14,11 +14,11 @@ export class ClienteService {
         rfc: data.rfc,
         email: data.email,
         telefono: data.telefono,
-        estatus: data.estatus,
+        estatus: data.estatus ?? true, // Estatus por defecto es activo (true)
         direccion: {
           create: {
             localidad: {
-              connect: { id: data.direccion[0].localidadId }, 
+              connect: { id: data.direccion[0].localidadId },
             },
             calle: data.direccion[0].calle,
             numeroExt: data.direccion[0].numeroExt,
