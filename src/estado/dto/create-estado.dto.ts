@@ -1,1 +1,3 @@
-export class CreateEstadoDto {}
+export class CreateEstadoDto {
+   name: string;
+}
