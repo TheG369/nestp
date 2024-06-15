@@ -1,1 +1,4 @@
-export class CreateLocalidadDto {}
+export class CreateLocalidadDto {
+  name: string;
+  municipioId: number;
+}
