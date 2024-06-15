@@ -1,1 +1,4 @@
-export class CreateMunicipioDto {}
+export class CreateMunicipioDto {
+  name: string;
+  estadoId: number;
+}
